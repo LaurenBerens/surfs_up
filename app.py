@@ -17,10 +17,10 @@ app = Flask(__name__)
 def welcome():
     return(
     '''
-    Welcome to the Climate Analysis API!
-    Available Routes:
-    /api/v1.0/Precipitation
-    /api/v1.0/Stations
+    Welcome to the Climate Analysis API!<br/>
+    Available Routes:<br/>
+    /api/v1.0/Precipitation  
+    /api/v1.0/Stations  
     /api/v1.0/Tobs
     /api/v1.0/Temp/start/end
     ''')
@@ -54,3 +54,4 @@ def stats(start=None, end=None):
             filter(Measurement.date <= end).all()
         temps = list(np.ravel(results))
     return jsonify(temps)
+app.run()
